@@ -1,4 +1,4 @@
-name: Surge deploys
+name: Validations
 
 on:
   - push
