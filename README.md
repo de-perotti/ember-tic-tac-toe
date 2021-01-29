@@ -22,7 +22,7 @@
           - I ended up having to install a year that has not been updated for over 2 years and is still in beta
         - [x] Create game service
         - [x] Create tile component
-        - [ ] Create player turn component
+        - [x] Create player turn component
         - [ ] Create board component
         - [ ] Enable starting a game
         - [ ] Enable making a move
