@@ -19,8 +19,8 @@
     - Playing
         - [x] Create models
         - [x] Create localforage adapter
-          - Acabei tendo que instalar uma lib que não só está em beta, mas está há 2 anos sem atualizar
-        - [ ] Create game service
+          - I ended up having to install a year that has not been updated for over 2 years and is still in beta
+        - [x] Create game service
         - [ ] Create tile component
         - [ ] Create player turn component
         - [ ] Create board component
