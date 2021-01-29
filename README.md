@@ -18,8 +18,9 @@
 - Imperatively
     - Playing
         - [x] Create models
-        - [ ] Create localforage adapter
-        - [ ] Create service
+        - [x] Create localforage adapter
+          - Acabei tendo que instalar uma lib que não só está em beta, mas está há 2 anos sem atualizar
+        - [ ] Create game service
         - [ ] Create tile component
         - [ ] Create player turn component
         - [ ] Create board component
@@ -79,7 +80,6 @@
         - [ ] Create game pdp
         - [ ] Enable replaying the moves
         - [ ] Enable controlling speed of replay
-
 #### Starting the application
 
 ```mermaid
@@ -189,11 +189,11 @@ erDiagram
 	user ||--|{ session : keeps
 	session ||--|| session_history : has
 	session_history ||--|{ board : registers
-	session ||--o{ player : has
-	board ||--|{ player : has
+	session }|--o{ player : has
+	board }|--|{ player : has
 	board ||--|| board_history : tracks
 	player_event ||--|| tile : relates
 	board ||--|{ tile : has
-	player_event ||--|| player : belongs_to
+	player_event }|--|| player : belongs_to
 	board_history ||--o{ player_event : registers
 ```
