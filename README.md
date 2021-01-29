@@ -201,3 +201,7 @@ erDiagram
 	player_event }|--|| player : belongs_to
 	board_history ||--o{ player_event : registers
 ```
+
+#### Contributing
+
+Feel free to open a Pull Request however you'd like.
