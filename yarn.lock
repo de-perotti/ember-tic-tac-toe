@@ -4989,7 +4989,7 @@ ember-compatibility-helpers@^1.1.1, ember-compatibility-helpers@^1.1.2, ember-co
     ember-cli-version-checker "^5.1.1"
     semver "^5.4.1"
 
-ember-data@~3.24.0:
+ember-data@^3.24.0:
   version "3.24.0"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.24.0.tgz#c0eff9a94d141f31021bc4cbe5de18be3513e55f"
   integrity sha512-DdoJ573ucwXBBx3mR3eYwSCBChDGv3cDWaCu4x6lGmvHjropvoOVJmuXDhCuxtI17Zly7ATlXarfPZdmPA95QQ==
