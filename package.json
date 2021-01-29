@@ -1,0 +1,10 @@
+{
+  "name": "ember-tic-tac-toe",
+  "version": "0.0.1",
+  "description": "An overengineered tic tac toe application written in ember and deployed to surge.sh",
+  "repository": "git@github.com:perottilds/ember-tic-tac-toe.git",
+  "author": "Luigi Perotti <perottilds@gmail.com>",
+  "license": "The Unlicense",
+  "private": true,
+  "workspaces": ["packages/*"]
+}
