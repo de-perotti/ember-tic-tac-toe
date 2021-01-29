@@ -1,22 +1,22 @@
-{{#if this.isLoading}}
+{{#if (eq this.state 'loading')}}
   Loading a new game...
 {{/if}}
 
-{{#unless this.isLoading}}
-  {{#if this.isPlaying}}
-    <PlayerTurn>
-      {{this.currentPlayer.id}}
-    </PlayerTurn>
-  {{/if}}
+{{#if (eq this.state 'playing')}}
+  <PlayerTurn>
+    {{this.currentPlayer.id}}
+  </PlayerTurn>
 
   <button {{on "click" (fn this.newGame null)}}>New Game</button>
 
-  <ul>
-    {{#each this.game.tiles as |tile|}}
-      <li>
-        <Tile>{{tile.id}}</Tile>
-      </li>
-    {{/each}}
-  </ul>
-{{/unless}}
+  <Board>
+    <ul>
+      {{#each this.game.tiles as |tile index|}}
+        <li>
+          <Tile>{{add index 1}} {{tile.id}}</Tile>
+        </li>
+      {{/each}}
+    </ul>
+  </Board>
+{{/if}}
 

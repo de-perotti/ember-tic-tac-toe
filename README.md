@@ -23,7 +23,7 @@
         - [x] Create game service
         - [x] Create tile component
         - [x] Create player turn component
-        - [ ] Create board component
+        - [x] Create board component
         - [ ] Enable starting a game
         - [ ] Enable making a move
         - [ ] Enable winning a game
@@ -45,6 +45,7 @@
         - [ ] Enable replaying the moves
         - [ ] Enable controlling speed of replay
 - [ ] Add typescript
+- [ ] Add fastboot
 - [ ] Add eslint
 - [ ] Add prettier
 - [ ] Add git hooks

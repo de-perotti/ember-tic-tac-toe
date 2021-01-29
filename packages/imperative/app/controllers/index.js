@@ -11,25 +11,34 @@ export default class IndexController extends Controller {
 
   @service('game') gameService;
 
+  @tracked state = 'loading';
   @tracked currentPlayer;
-  @tracked isLoading = true;
-  @tracked isPlaying = false;
   @tracked game;
 
   @action
   async newGame(game) {
+    if (game) {
+      this.setPlaying(game);
+      return;
+    }
+
     if (this.isLoading) {
       return;
     }
 
-    this.isLoading = true;
-    this.isPlaying = false;
-    this.currentPlayer = undefined;
+    this.setLoading();
+    const newGame = await this.gameService.create();
+    this.setPlaying(newGame);
+  }
 
-    this.game = game || (await this.gameService.create());
-
+  setPlaying(game) {
+    this.game = game;
     this.currentPlayer = this.game.players[0];
-    this.isPlaying = true;
-    this.isLoading = false;
+    this.state = 'playing';
+  }
+
+  setLoading() {
+    this.state = 'loading';
+    this.currentPlayer = undefined;
   }
 }

@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default class GameService extends Service {
   @service store;
+
   @service('session') sessionService;
   @service('board') boardService;
   @service('tile') tileService;
