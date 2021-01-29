@@ -1,0 +1,22 @@
+{{#if this.isLoading}}
+  Loading a new game...
+{{/if}}
+
+{{#unless this.isLoading}}
+  {{#if this.isPlaying}}
+    <PlayerTurn>
+      {{this.currentPlayer.id}}
+    </PlayerTurn>
+  {{/if}}
+
+  <button {{on "click" (fn this.newGame null)}}>New Game</button>
+
+  <ul>
+    {{#each this.game.tiles as |tile|}}
+      <li>
+        <Tile>{{tile.id}}</Tile>
+      </li>
+    {{/each}}
+  </ul>
+{{/unless}}
+
