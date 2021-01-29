@@ -7,7 +7,7 @@ on:
 
 jobs:
   surge-deploy:
-    name: Surge deploy of package ${{ matrix.node }}
+    name: Surge deploy
     runs-on: ubuntu-latest
     strategy:
       matrix:
