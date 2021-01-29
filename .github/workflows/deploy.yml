@@ -1,4 +1,4 @@
-name: Surge deploys
+name: Deploys
 
 on:
   push:
@@ -6,12 +6,12 @@ on:
       - main
 
 jobs:
-  my-job:
+  surge-deploy:
+    name: Surge deploy of package ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         package: [ 'imperative' ]
-    name: Node ${{ matrix.node }} sample
     steps:
       - uses: actions/checkout@v2
       - name: Setup node

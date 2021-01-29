@@ -8,6 +8,7 @@
 
 #### TODO
 - [ ] Drop yarn support in favor of pnpm
+- [ ] Make matrix in workflow use a glob pattern for packages/*
 
 #### Tasks
 - Getting started
@@ -16,7 +17,7 @@
     - [x] Deploy to surge.sh
 - Imperatively
     - Playing
-        - [ ] Create models
+        - [x] Create models
         - [ ] Create localforage adapter
         - [ ] Create service
         - [ ] Create tile component

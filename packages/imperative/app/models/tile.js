@@ -1,4 +1,4 @@
-import Model from '@ember-data/model';
+import Model, { belongsTo } from '@ember-data/model';
 
 export default class TileModel extends Model {
   // Only one event because we do not support for retries4
