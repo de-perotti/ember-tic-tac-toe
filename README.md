@@ -80,6 +80,7 @@
         - [ ] Create game pdp
         - [ ] Enable replaying the moves
         - [ ] Enable controlling speed of replay
+
 #### Starting the application
 
 ```mermaid
@@ -108,6 +109,7 @@ sequenceDiagram
 ```
 
 #### Starting a game
+
 ```mermaid
 sequenceDiagram
 	participant user as User
@@ -138,6 +140,7 @@ sequenceDiagram
 ```
 
 #### A move
+
 ```mermaid
 sequenceDiagram
 	participant player as Player
@@ -175,6 +178,7 @@ sequenceDiagram
 ```
 
 #### Relationships
+
 ```mermaid
 erDiagram
 	user
