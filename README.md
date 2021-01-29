@@ -11,7 +11,9 @@
 
 #### Tasks
 - Getting started
-    - [ ] Create README.md
+    - [x] Create README.md
+    - [x] Add git actions
+    - [x] Deploy to surge.sh
 - Imperatively
     - Playing
         - [ ] Create models
@@ -44,8 +46,6 @@
 - [ ] Add eslint
 - [ ] Add prettier
 - [ ] Add git hooks
-- [ ] Add git actions
-- [ ] Deploy to surge.sh
 - [ ] Create monorepo with pnpm
 - [ ] Extract what can be extracted from imperative
     - Maybe as addon?

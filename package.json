@@ -6,5 +6,10 @@
   "author": "Luigi Perotti <perottilds@gmail.com>",
   "license": "The Unlicense",
   "private": true,
-  "workspaces": ["packages/*"]
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "surge": "^0.21.7"
+  }
 }
