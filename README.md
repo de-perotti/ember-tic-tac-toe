@@ -21,7 +21,7 @@
         - [x] Create localforage adapter
           - I ended up having to install a year that has not been updated for over 2 years and is still in beta
         - [x] Create game service
-        - [ ] Create tile component
+        - [x] Create tile component
         - [ ] Create player turn component
         - [ ] Create board component
         - [ ] Enable starting a game

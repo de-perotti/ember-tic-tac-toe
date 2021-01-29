@@ -1,2 +1,9 @@
 {{page-title "Imperative"}}
+<ul>
+  {{#each @model.tiles as |tile|}}
+    <li>
+      <Tile>{{tile.id}}</Tile>
+    </li>
+  {{/each}}
+</ul>
 {{outlet}}
