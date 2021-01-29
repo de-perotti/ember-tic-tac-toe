@@ -1,12 +1,13 @@
 name: Deploys
 
 on:
-  push:
-    branches:
-      - main
+  push
 
 jobs:
   surge-deploy:
+    needs:
+      - lint
+      - test
     name: Surge deploy
     runs-on: ubuntu-latest
     strategy:
@@ -19,6 +20,8 @@ jobs:
         with:
           node-version: 14
       - run: yarn install
+      - run: yarn workspace ${{ matrix.package }} lint
+      - run: yarn workspace ${{ matrix.package }} test
       - run: yarn workspace ${{ matrix.package }} build
       - name: Deploy to ${{ matrix.package }} to surge (latest)
         uses: dswistowski/surge-sh-action@v1
