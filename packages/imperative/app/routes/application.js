@@ -1,10 +1,3 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 
-export default class ApplicationRoute extends Route {
-  @service game;
-
-  async afterModel() {
-    await this.game.create();
-  }
-}
+export default class ApplicationRoute extends Route {}
