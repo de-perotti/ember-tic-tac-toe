@@ -29,14 +29,6 @@
         {{this.gameService.currentPlayer.id}}
       </PlayerTurn>
 
-      <ul>
-        {{#each this.gameService.tiles as |tile|}}
-          {{#if tile.event}}
-            <p>{{tile.event.player.ticker}} {{to-date tile.event.date}}</p>
-          {{/if}}
-        {{/each}}
-      </ul>
-
       <Board>
           {{#each this.gameService.tiles as |tile|}}
               <Tile
