@@ -21,9 +21,7 @@ jobs:
 #      - run: yarn workspace ${{ matrix.package }} test
       - run: |
           yarn workspace ${{ matrix.package }} build
-          cd packages/${{ matrix.package }}
           zip -r ${{ matrix.package }} packages/${{ matrix.package }}/dist
-          cd -
 #      - name: Deploy to ${{ matrix.package }} to surge (latest)
 #        uses: dswistowski/surge-sh-action@v1
 #        env:
