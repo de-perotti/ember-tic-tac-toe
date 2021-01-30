@@ -47,9 +47,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
-          repo: ${{ matrix.package }}
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          release_name: |
+            [${{ matrix.package }}] Release  ${{ github.ref }}"
           body: |
             Project hosted on https://surge.sh:
             ${{ steps.staging_env.outputs.staging_url }}
