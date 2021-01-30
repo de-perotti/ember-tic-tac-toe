@@ -8,6 +8,7 @@ export default class PlayerEventService extends Service {
       player,
       tile,
       boardHistory: tile.get('board.history'),
+      date: Date.now(),
     });
     await event.save();
 

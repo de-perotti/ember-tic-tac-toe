@@ -1,35 +1,53 @@
-{{#if (eq this.gameService.state 'loading')}}
-  Loading a new game...
-{{/if}}
+<Section>
+  {{#if (eq this.gameService.state 'loading')}}
+    <p>Loading a new game...</p>
+  {{/if}}
 
-{{#if (or
-      (eq this.gameService.state 'playing')
-      (eq this.gameService.state 'moving'))}}
-  <PlayerTurn>
-    {{this.gameService.currentPlayer.id}}
-  </PlayerTurn>
+  {{#if (eq this.gameService.state 'winner')}}
+    <p>Player {{this.gameService.currentPlayer.id}} won</p>
+  {{/if}}
 
-  <button
-    type="button"
-    {{on "click" (fn this.gameService.newGame null)}}
-  >
-    New Game
-  </button>
+  {{#if (eq this.gameService.state 'draw')}}
+    <p>It's a draw</p>
+  {{/if}}
 
-  <Board>
-    <ul>
-      {{#each this.gameService.game.tiles as |tile index|}}
-        <li>
-          <Tile
-            {{on "click" (fn this.gameService.move tile this.gameService.currentPlayer)}}
-            disabled={{eq this.gameService.state 'moving'}}
-          >
-            {{add index 1}} {{tile.id}} {{coalesce tile.ticker '-'}}
-          </Tile>
-        </li>
-      {{/each}}
-    </ul>
-  </Board>
-{{/if}}
+  {{#if (or
+        (eq this.gameService.state 'draw')
+        (eq this.gameService.state 'winner'))}}
+    <button
+            type="button"
+      {{on "click" (fn this.gameService.newGame null)}}
+    >
+      Play again?
+    </button>
+  {{/if}}
+
+  {{#if (or
+        (eq this.gameService.state 'playing')
+        (eq this.gameService.state 'moving'))}}
+      <PlayerTurn>
+        {{this.gameService.currentPlayer.id}}
+      </PlayerTurn>
+
+      <ul>
+        {{#each this.gameService.tiles as |tile|}}
+          {{#if tile.event}}
+            <p>{{tile.event.player.ticker}} {{to-date tile.event.date}}</p>
+          {{/if}}
+        {{/each}}
+      </ul>
+
+      <Board>
+          {{#each this.gameService.tiles as |tile|}}
+              <Tile
+                {{on "click" (fn this.gameService.move tile this.gameService.currentPlayer)}}
+                disabled={{eq this.gameService.state 'moving'}}
+              >
+                {{coalesce tile.ticker '-'}}
+              </Tile>
+          {{/each}}
+      </Board>
+  {{/if}}
+</Section>
 
 

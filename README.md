@@ -19,22 +19,21 @@
     - Playing
         - [x] Create models
         - [x] Create localforage adapter
-          - I ended up having to install a year that has not been updated for over 2 years and is still in beta
         - [x] Create game service
         - [x] Create tile component
         - [x] Create player turn component
         - [x] Create board component
         - [x] Enable starting a game
         - [x] Enable making a move
-        - [ ] Enable winning a game
-        - [ ] Enable drawing a game
-        - [ ] Enable saving unfinished games
-        - [ ] Enable starting a game after finishing
-        - [ ] Enable checking for a draw before finishing
+        - [x] Enable winning a game
+        - [x] Enable drawing a game
+        - [x] Enable saving unfinished games
+        - [x] Enable starting a game after finishing
         - [ ] Enable players to choose their tickers
         - [ ] Enable players to choose their names
         - [ ] Enable more than two players
         - [ ] Enable more than 3x3 boards
+        - [ ] Enable checking for a draw before finishing
     - Checking sessions' games
         - [ ] Create session plp
         - [ ] Create session pdp

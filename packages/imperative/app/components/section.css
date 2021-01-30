@@ -1,0 +1,11 @@
+.section {
+  max-width: 540px;
+  margin: 0 16px;
+}
+
+@media screen and (min-width: calc(540px + 32px)) {
+  .section {
+    margin: 0 auto;
+  }
+}
+

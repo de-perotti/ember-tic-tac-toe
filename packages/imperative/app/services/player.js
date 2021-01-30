@@ -7,12 +7,14 @@ export default class PlayerService extends Service {
     const players = tickers.map((ticker) =>
       this.store.createRecord('player', { ticker })
     );
+
     await Promise.all(
       players.map((t) => {
         t.boards = [board];
         return t.save();
       })
     );
+
     return players;
   }
 }
