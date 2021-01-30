@@ -69,7 +69,7 @@ jobs:
         with:
           tag_name: ${{ steps.next_version.outputs.version }}
           release_name: |
-            [${{ matrix.package }}] Release  ${{ github.ref }}"
+            [${{ matrix.package }}] Release  ${{ steps.next_version.outputs.version }}
           body: |
             Project hosted on https://surge.sh:
             https://${{ steps.staging_env.outputs.staging_url }}
