@@ -55,7 +55,7 @@ jobs:
 
       - name: Get next version
         id: next_version
-        uses: zwaldowski/semver-release-action@v1
+        uses: zwaldowski/semver-release-action@v2
         with:
           dry_run: true
           bump: prerelease
