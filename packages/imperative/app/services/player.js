@@ -3,10 +3,10 @@ import Service, { inject as service } from '@ember/service';
 export default class PlayerService extends Service {
   @service store;
 
-  async create(board, n) {
-    const players = Array(n)
-      .fill()
-      .map(() => this.store.createRecord('player'));
+  async create(board, tickers) {
+    const players = tickers.map((ticker) =>
+      this.store.createRecord('player', { ticker })
+    );
     await Promise.all(
       players.map((t) => {
         t.boards = [board];

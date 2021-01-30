@@ -24,8 +24,8 @@
         - [x] Create tile component
         - [x] Create player turn component
         - [x] Create board component
-        - [ ] Enable starting a game
-        - [ ] Enable making a move
+        - [x] Enable starting a game
+        - [x] Enable making a move
         - [ ] Enable winning a game
         - [ ] Enable drawing a game
         - [ ] Enable saving unfinished games

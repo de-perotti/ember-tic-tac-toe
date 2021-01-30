@@ -1,22 +1,35 @@
-{{#if (eq this.state 'loading')}}
+{{#if (eq this.gameService.state 'loading')}}
   Loading a new game...
 {{/if}}
 
-{{#if (eq this.state 'playing')}}
+{{#if (or
+      (eq this.gameService.state 'playing')
+      (eq this.gameService.state 'moving'))}}
   <PlayerTurn>
-    {{this.currentPlayer.id}}
+    {{this.gameService.currentPlayer.id}}
   </PlayerTurn>
 
-  <button type="button" {{on "click" (fn this.newGame null)}}>New Game</button>
+  <button
+    type="button"
+    {{on "click" (fn this.gameService.newGame null)}}
+  >
+    New Game
+  </button>
 
   <Board>
     <ul>
-      {{#each this.game.tiles as |tile index|}}
+      {{#each this.gameService.game.tiles as |tile index|}}
         <li>
-          <Tile>{{add index 1}} {{tile.id}}</Tile>
+          <Tile
+            {{on "click" (fn this.gameService.move tile this.gameService.currentPlayer)}}
+            disabled={{eq this.gameService.state 'moving'}}
+          >
+            {{add index 1}} {{tile.id}} {{coalesce tile.ticker '-'}}
+          </Tile>
         </li>
       {{/each}}
     </ul>
   </Board>
 {{/if}}
+
 
