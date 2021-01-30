@@ -53,14 +53,13 @@ jobs:
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
 
-      - name: Tag
-        id: tag
-        uses: K-Phoen/semver-release-action@master
-        with:
-          release_branch: main
-          release_strategy: none
-        env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+      - name: Get next version
+        id: next_version
+        uses: zwaldowski/semver-release-action@v1
+          with:
+            dry_run: true
+            bump: prerelease
+            github_token: ${{ secrets.github_token }}
 
       - name: Create Release
         id: create_release
@@ -68,7 +67,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
-          tag_name: ${{ steps.tag.outputs.tag }}
+          tag_name: ${{ steps.next_version.outputs.version }}
           release_name: |
             [${{ matrix.package }}] Release  ${{ github.ref }}"
           body: |
