@@ -32,12 +32,25 @@ jobs:
       - name: Calculate GITHUB SHA SHORT
         id: vars
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: Set staging url
+        id: staging_env
+        run: echo "::set-output name=staging_url::perottidev-tic-tac-toe-${{ matrix.package }}-${{ steps.vars.outputs.sha_short }}.surge.sh"
       - name: Deploy to ${{ matrix.package }} to surge (sha)
         uses: dswistowski/surge-sh-action@v1
-        env:
-          sha_domain: perottidev-tic-tac-toe-${{ matrix.package }}-${{ steps.vars.outputs.sha_short }}.surge.sh
         with:
-          domain: ${{ env.sha_domain }}
+          domain: ${{ steps.staging_env.outputs.staging_url }}
           project: ./packages/${{ matrix.package }}/dist
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
+      - name: Create Release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.github_token }}
+          with:
+            repo: ${{ matrix.package }}
+            tag_name: ${{ github.ref }}
+            release_name: Release ${{ github.ref }}
+            body: |
+              Project hosted on https://surge.sh:
+              ${{ steps.staging_env.outputs.staging_url }}
+            prerelease: true
