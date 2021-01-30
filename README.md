@@ -114,34 +114,45 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
 	participant user as User
+	participant page as Page
 	participant service as Game Service
 	participant session as Session
 	participant board as Board
+	participant tile as Tile
 	participant player as Player
 	participant session_history as Session History
 
-	user ->> service : new game
-	activate service
-		service ->> session : get latest
-		session ->> service : 
-		alt latest session
-			service ->> board : create
-			
-			Note left of board:  { players: number = 2 }
-			board ->> service : 
-			service ->> session : push board 
-			session ->> session_history: put board into history
-			service ->> player: create n players
-			player ->> service : 
-			service ->> board : set players
-			
-		end
-		service ->> user : make a move
-	deactivate service	
+	user ->> page : new game
+	activate page
+		page ->> page : state : loading
+		page ->> service : create game
+
+		activate service
+			service ->> session : get latest
+			session ->> service : 
+			alt latest session
+				service ->> board : create
+
+				Note left of board:  { players: number = 2 }
+				board ->> service : 
+				service ->> session : push board 
+				session ->> session_history: put board into history
+				service ->> player: create n players
+				player ->> service : 
+				service ->> board : set players
+				service ->> tile: create n tiles
+				tile ->> service : 
+				service ->> board : set tiles
+
+			end
+			service ->> page : created
+		deactivate service	
+
+		page ->> page : state : playing
+	deactivate page
 ```
 
 #### A move
-
 ```mermaid
 sequenceDiagram
 	participant player as Player
@@ -153,16 +164,15 @@ sequenceDiagram
 	
 	
 	player ->> tile : click
-	tile ->> board : player clicked
-	board ->> board : validate move
+	tile ->> service : player clicked
+	service ->> service : validate move
 	alt is valid event
-		board ->> board_history : register event
+		service ->> board_history : register event
 			Note right of board: Although registering events, we do not allow for undo/redo
-		board ->> tile : go ahead and update
-		tile ->> tile : display user token on tile
+		service ->> tile : go ahead and update
+		tile ->> tile : display player ticker on tile
 
 		alt is finishing condition
-			board ->> service : end game
 			service ->> service : we are done here
 			par
 				service ->> page : display new game button
@@ -179,7 +189,6 @@ sequenceDiagram
 ```
 
 #### Relationships
-
 ```mermaid
 erDiagram
 	user
