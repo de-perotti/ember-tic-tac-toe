@@ -7,7 +7,7 @@ export default class IndexRoute extends Route {
     return this.game.create();
   }
 
-  setupController(controller, model, transition) {
+  setupController(controller, model) {
     controller.newGame(model);
   }
 }
