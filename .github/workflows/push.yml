@@ -36,7 +36,7 @@ jobs:
 #          project: ./packages/${{ matrix.package }}/dist
 #          login: ${{ secrets.surge_login }}
 #          token: ${{ secrets.surge_token }}
--
+
       - name: Calculate GITHUB SHA SHORT
         id: vars
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
