@@ -30,6 +30,7 @@
         - [x] Enable drawing a game
         - [x] Enable saving unfinished games
         - [x] Enable starting a game after finishing
+        - [ ] Enable checking event history as players play
         - [ ] Enable players to choose their tickers
         - [ ] Enable players to choose their names
         - [ ] Enable more than two players
