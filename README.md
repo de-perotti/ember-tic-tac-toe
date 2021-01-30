@@ -30,12 +30,12 @@
         - [x] Enable drawing a game
         - [x] Enable saving unfinished games
         - [x] Enable starting a game after finishing
-        - [ ] Enable checking event history as players play
         - [ ] Enable players to choose their tickers
         - [ ] Enable players to choose their names
         - [ ] Enable more than two players
         - [ ] Enable more than 3x3 boards
         - [ ] Enable checking for a draw before finishing
+        - [ ] Enable checking event history as players play
     - Checking sessions' games
         - [ ] Create session plp
         - [ ] Create session pdp
@@ -58,7 +58,7 @@
     - Playing
         - [ ] Create models
         - [ ] Create localforage adapter
-        - [ ] Create service
+        - [ ] Create game service
         - [ ] Create tile component
         - [ ] Create player turn component
         - [ ] Create board component
@@ -68,11 +68,12 @@
         - [ ] Enable drawing a game
         - [ ] Enable saving unfinished games
         - [ ] Enable starting a game after finishing
-        - [ ] Enable checking for a draw before finishing
         - [ ] Enable players to choose their tickers
         - [ ] Enable players to choose their names
         - [ ] Enable more than two players
         - [ ] Enable more than 3x3 boards
+        - [ ] Enable checking for a draw before finishing
+        - [ ] Enable checking event history as players play
     - Checking sessions' games
         - [ ] Create session plp
         - [ ] Create session pdp
