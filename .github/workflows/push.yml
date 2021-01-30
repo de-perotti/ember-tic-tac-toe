@@ -56,10 +56,10 @@ jobs:
       - name: Get next version
         id: next_version
         uses: zwaldowski/semver-release-action@v1
-          with:
-            dry_run: true
-            bump: prerelease
-            github_token: ${{ secrets.github_token }}
+        with:
+          dry_run: true
+          bump: prerelease
+          github_token: ${{ secrets.github_token }}
 
       - name: Create Release
         id: create_release
