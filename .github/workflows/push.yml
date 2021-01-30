@@ -20,22 +20,23 @@ jobs:
 
       - run: yarn install
 
-#      - run: yarn workspace ${{ matrix.package }} lint
-#      - run: yarn workspace ${{ matrix.package }} test
+      - run: yarn workspace ${{ matrix.package }} lint
+
+      - run: yarn workspace ${{ matrix.package }} test
 
       - run: |
           yarn workspace ${{ matrix.package }} build
           zip -r ${{ matrix.package }} packages/${{ matrix.package }}/dist
 
-#      - name: Deploy to ${{ matrix.package }} to surge (latest)
-#        uses: dswistowski/surge-sh-action@v1
-#        env:
-#          latest_domain: perottidev-tic-tac-toe-${{ matrix.package }}.surge.sh
-#        with:
-#          domain: ${{ env.latest_domain }}
-#          project: ./packages/${{ matrix.package }}/dist
-#          login: ${{ secrets.surge_login }}
-#          token: ${{ secrets.surge_token }}
+      - name: Deploy to ${{ matrix.package }} to surge (latest)
+        uses: dswistowski/surge-sh-action@v1
+        env:
+          latest_domain: perottidev-tic-tac-toe-${{ matrix.package }}.surge.sh
+        with:
+          domain: ${{ env.latest_domain }}
+          project: ./packages/${{ matrix.package }}/dist
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }}
 
       - name: Calculate GITHUB SHA SHORT
         id: vars

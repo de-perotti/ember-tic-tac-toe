@@ -9,6 +9,7 @@
 #### TODO
 - [ ] Drop yarn support in favor of pnpm
 - [ ] Make matrix in workflow use a glob pattern for packages/*
+- [ ] Split workflow jobs
 
 #### Tasks
 - Getting started
